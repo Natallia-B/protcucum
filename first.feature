@@ -3,10 +3,10 @@ Feature: Example feature
   I want to be able to navigate to dashboard.
 
   # Background:
-  #   Given Log in to Dashboard
+  #   Given I am on the signing in page
   
   Scenario: Log in to PI
-    Given I am on the signing in page
+    Given I am on the Sample page
     # When I navigate to 'Research'
     # When I navigate to 'Sample'
     # When I am on the 'Sample' page

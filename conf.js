@@ -12,11 +12,16 @@ exports.config = {
   
     seleniumAddress: 'http://localhost:4444/wd/hub',
     specs: ['*.feature'],
-    multiCapabilities: [/*{
-      browserName: 'firefox'
-    }, */{
-      browserName: 'chrome',
-      // allScriptsTimeout: 120000
+    multiCapabilities: [{
+      browserName: 'chrome', 
+      // chromeOptions: {
+      //   args: '--window-size=800,600'
+      
+  //  },
+      // browserName: 'firefox',
+      // browsername: 'safari'
+
+      // allScriptsTimeout: 6000
     }]
   }
   
