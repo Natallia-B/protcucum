@@ -13,7 +13,7 @@ defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
   setDefaultTimeout(60000);
 
   browser.driver.manage().window().setSize(1100, 800);
-  Given('I am on the Sample page', function() {
+  Given('I navigate to Research Sample', function() {
     function browserClearing() {
       return Promise.resolve()
         .then(() => browser.executeScript('window.sessionStorage.clear();'))
@@ -49,20 +49,43 @@ defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
   .then(function () {
     return element(by.xpath('.//*[@id="sidebar"]/div[1]/ul/li[2]/ul/li[1]/a')).click();
   }) 
-  .then(()=>{
-    return browser.wait(()=>{
-        return browser.getTitle()
-        .then((title)=>{
-          return title === 'Sample | TruVoice';
-        })
-    },10000)
-  })
-  .then(function () {
-    return browser.wait(protractor.ExpectedConditions.titleIs('Sample | TruVoice'), 5000);
+  // .then(()=>{
+  //   return browser.wait(()=>{
+  //       return browser.getTitle()
+  //       .then((title)=>{
+  //         return title === 'Sample | TruVoice';
+  //       })
+  //   },10000)
+  // })
   
-  })
 
    })
+   Given('I am on the Sample page', function() {
+
+    return Promise.resolve()
+    .then(function () {
+      return browser.wait(protractor.ExpectedConditions.titleIs('Sample | TruVoice'), 5000);
+    
+    })
+
+   })
+   When('I Select CIP', function() {
+    
+    return Promise.resolve()
+    .then(function () {
+      return element(by.xpath('.//*[@id="header"]/ul/li[3]/a/div[1]')).click();
+    })
+    .then(function () {
+       return element(by.xpath('//*[@id="nav-search"]')).clear().sendKeys('Rackspace :: Hosting :: Win Loss')
+       
+    })
+    .then (()=>{
+    
+       return element(by.xpath('.//a[contains(text(),":: Hosting :: Win Loss")]')).click()
+    })
+   
+
+  })
   });
 
 
