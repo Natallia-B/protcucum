@@ -10,7 +10,7 @@ let expect = chai.expect;
 let loginButton = element(by.xpath('.//*[@id="signin-form_id"]/button'));
 
 defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
-  setDefaultTimeout(60000);
+  setDefaultTimeout(600000);
 
   browser.driver.manage().window().setSize(1100, 800);
   Given('I navigate to Research Sample', function() {
@@ -64,7 +64,7 @@ defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
 
     return Promise.resolve()
     .then(function () {
-      return browser.wait(protractor.ExpectedConditions.titleIs('Sample | TruVoice'), 5000);
+      return browser.wait(protractor.ExpectedConditions.titleIs('Sample | TruVoice'), 6000);
     
     })
 
@@ -86,6 +86,66 @@ defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
    
 
   })
+  When('I navigate to Edit opportunity', function() {
+    return Promise.resolve()
+    .then(function () {
+      return element(by.xpath('.//*[@id="research-sample-header"]/ul/li[2]/a')).click();
+    })
+    .then(function () {
+      return browser.wait(protractor.ExpectedConditions.titleIs('Add Opportunity | TruVoice'), 5000);
+    })
+  })
+  When('I add company', function() {
+    return Promise.resolve()
+    .then(function () {
+      return element(by.id('company-input')).sendKeys('AIS');
+    })
+  })
+  When('I add opportunity', function() {
+    return Promise.resolve()
+    .then(function () {
+      return element(by.css('#opp-value-group > div > input')).clear().sendKeys('AIS');
+    })
+  })
+
+  When('I select product', function() {
+    return Promise.resolve()
+    .then(function () {
+      return element(by.xpath('.//*[@class="k-input k-readonly"][1]')).sendKeys('Hosting');
+    })
+    .then(function () {
+      return  browser.sleep(500);
+    })
+   
+    
+  })
+
+  When('I select outcome', function() {
+    return Promise.resolve()
+    .then(function () {
+      return element(by.xpath('.//*[@id="add-opportunity-form"]/div[1]/div[1]/div/div[2]/form/div[7]/div/div/span/span/span[2]/span')).click();
+    })
+    .then(function () {
+      return element(by.xpath('.//*[@id="139a4aac-968b-4169-ba27-2e76dfcaa5f4"]')).click();
+    })
+    .then(function () {
+      return  browser.sleep(500);
+    })
+  })
+  
+  When('I navigate to Add contact', function() {
+    return Promise.resolve()
+    .then(function () {
+      return element(by.xpath('.//*[@id="add-opportunity-form"]/div[1]/div[2]/div/div[1]/button/i')).click();
+    })
+    .then(function () {
+      el = element(by.id('add-contact'));
+   
+      return browser.wait(protractor.ExpectedConditions.presenceOf($(el)), 5000);
+    })
+    
+  })
+
+
   });
-
-
+  

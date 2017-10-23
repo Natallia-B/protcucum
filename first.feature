@@ -8,7 +8,9 @@ Feature: Example feature
   Scenario: Log in to PI
     Given I am on the Sample page
     When I Select CIP
-    # When I navigate to 'Sample'
-    # When I am on the 'Sample' page
-    # When I navigate to 'ADD SAMPLE'
-    # When I am on the 'Edit Opportunity' page
+    When I navigate to Edit opportunity
+    When I add company
+    When I add opportunity
+    When I select product
+    When I select outcome
+    When I navigate to Add contact
