@@ -13,4 +13,4 @@ Feature: Example feature
     When I add opportunity
     When I select product
     When I select outcome
-    When I navigate to Add contact
+    # When I navigate to Add contact

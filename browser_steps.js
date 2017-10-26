@@ -10,7 +10,7 @@ let expect = chai.expect;
 let loginButton = element(by.xpath('.//*[@id="signin-form_id"]/button'));
 
 defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
-  setDefaultTimeout(600000);
+  setDefaultTimeout(1200000);
 
   browser.driver.manage().window().setSize(1100, 800);
   Given('I navigate to Research Sample', function() {
@@ -36,19 +36,23 @@ defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
    .then(function () {
       return browser.wait(protractor.ExpectedConditions.titleIs('Dashboard | TruVoice'), 5000);
     })
-  //  .then(function () {
-  //     return expect(browser.getTitle()).to.eventually.eq('Dashboard | TruVoice');
- 
-  //   })
-  .then(()=>{
-    return element(by.id('menu-trigger')).click();
-  })
-  .then(function () {
+  
+   .then(function () {
+     return browser.getTitle()
+    }) 
+   .then(function (title) {
+     expect(title).to.equal('Dashboard | TruVoice')
+    }) 
+  
+   .then(()=>{
+     return element(by.id('menu-trigger')).click();
+    })
+   .then(function () {
     return element(by.xpath('.//*[@id="sidebar"]/div[1]/ul/li[2]/a')).click();
-  }) 
-  .then(function () {
+    }) 
+   .then(function () {
     return element(by.xpath('.//*[@id="sidebar"]/div[1]/ul/li[2]/ul/li[1]/a')).click();
-  }) 
+    }) 
   // .then(()=>{
   //   return browser.wait(()=>{
   //       return browser.getTitle()
@@ -111,40 +115,46 @@ defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
   When('I select product', function() {
     return Promise.resolve()
     .then(function () {
-      return element(by.xpath('.//*[@class="k-input k-readonly"][1]')).sendKeys('Hosting');
+      return element(by.xpath('.//*[@id="add-opportunity-form"]/div[1]/div[1]/div/div[2]/form/div[4]/div/div/div/div')).click();
     })
-    .then(function () {
-      return  browser.sleep(500);
+    
+    .then(() =>{
+      return element(by.xpath('.//li[contains(text(),"Hosting")]')).isDisplayed();
     })
-   
+    .then(function (is) {
+      console.log(is+' !!!!!!!!')
+      return element(by.xpath('.//li[contains(text(),"Hosting")]')).click();
+    })
     
   })
 
   When('I select outcome', function() {
     return Promise.resolve()
     .then(function () {
-      return element(by.xpath('.//*[@id="add-opportunity-form"]/div[1]/div[1]/div/div[2]/form/div[7]/div/div/span/span/span[2]/span')).click();
+      return element(by.xpath('.//span[contains(text(),"Outcome")]')).click();
     })
-    .then(function () {
-      return element(by.xpath('.//*[@id="139a4aac-968b-4169-ba27-2e76dfcaa5f4"]')).click();
+    .then(function (is) {
+      console.log(is+' !!!!!!!!')
+      return element(by.xpath('.//li[contains(text(),"No Decision")]')).click();
     })
+  
     .then(function () {
-      return  browser.sleep(500);
+      return  browser.sleep(50000);
     })
   })
   
-  When('I navigate to Add contact', function() {
-    return Promise.resolve()
-    .then(function () {
-      return element(by.xpath('.//*[@id="add-opportunity-form"]/div[1]/div[2]/div/div[1]/button/i')).click();
-    })
-    .then(function () {
-      el = element(by.id('add-contact'));
+  // When('I navigate to Add contact', function() {
+  //   return Promise.resolve()
+  //   .then(function () {
+  //     return element(by.xpath('.//*[@id="add-opportunity-form"]/div[1]/div[2]/div/div[1]/button/i')).click();
+  //   })
+  //   .then(function () {
+  //     el = element(by.id('add-contact'));
    
-      return browser.wait(protractor.ExpectedConditions.presenceOf($(el)), 5000);
-    })
+  //     return browser.wait(protractor.ExpectedConditions.presenceOf($(el)), 5000);
+  //   })
     
-  })
+  // })
 
 
   });
