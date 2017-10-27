@@ -2,10 +2,11 @@ let webdriver = require('selenium-webdriver');
 let {defineSupportCode} = require('cucumber');
 let chai = require('chai');
 chai.use(require('chai-smoothie'));
-
+let SamplePage = require('./sample_p.js');
 // let chaiAsPromised = require("chai-as-promised");
 // chai.use(chaiAsPromised);
 let expect = chai.expect;
+let page;
 
 let loginButton = element(by.xpath('.//*[@id="signin-form_id"]/button'));
 
@@ -22,7 +23,7 @@ defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
     }
     return Promise.resolve()
     .then(function () {
-      return browser.get('http://next.primary-intel.com/');
+      return browser.get('https://next.primary-intel.com/');
     })
     .then(function () {
       return element(by.id('username_id')).sendKeys('rallen@primary-intel.com');
@@ -137,25 +138,35 @@ defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
       console.log(is+' !!!!!!!!')
       return element(by.xpath('.//li[contains(text(),"No Decision")]')).click();
     })
-  
-    .then(function () {
-      return  browser.sleep(50000);
-    })
+
   })
+
+  //Second part: same, but using page object
   
-  // When('I navigate to Add contact', function() {
-  //   return Promise.resolve()
-  //   .then(function () {
-  //     return element(by.xpath('.//*[@id="add-opportunity-form"]/div[1]/div[2]/div/div[1]/button/i')).click();
-  //   })
-  //   .then(function () {
-  //     el = element(by.id('add-contact'));
-   
-  //     return browser.wait(protractor.ExpectedConditions.presenceOf($(el)), 5000);
-  //   })
+  When('Open edit opportunity', function() {
     
-  // })
+      // page = new SamplePage ()
+      // return page.navigate()
+      // .then(function(){
+      //   return browser.sleep(20000);
+      // });
+       
+      return page = new SamplePage ()
+       
+          browser.sleep(20000);
+        });
 
 
-  });
-  
+  When('Company', function() {
+
+      // return page.typeCompany('AIS');
+      return browser.sleep(20000)
+      console.log(page.typeCompany)
+      .then(function () {
+        return page.typeCompany('AIS');
+      })
+      browser.sleep(3000);
+
+
+  })
+});
