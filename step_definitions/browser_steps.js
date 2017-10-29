@@ -1,26 +1,13 @@
-let webdriver = require('selenium-webdriver');
 let {defineSupportCode} = require('cucumber');
-let chai = require('chai');
-chai.use(require('chai-smoothie'));
-let SamplePage = require('./sample_p.js');
-// let chaiAsPromised = require("chai-as-promised");
-// chai.use(chaiAsPromised);
-let expect = chai.expect;
+let SamplePage = require('./../support/sample_p.js');
 let page;
-
 let loginButton = element(by.xpath('.//*[@id="signin-form_id"]/button'));
 
 defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
   setDefaultTimeout(1200000);
 
-  browser.driver.manage().window().setSize(1100, 800);
   Given('I navigate to Research Sample', function() {
-    function browserClearing() {
-      return Promise.resolve()
-        .then(() => browser.executeScript('window.sessionStorage.clear();'))
-        .then(() => browser.executeScript('window.localStorage.clear();'))
-        .then(() => browser.manage().deleteAllCookies());
-    }
+    
     return Promise.resolve()
     .then(function () {
       return browser.get('https://next.primary-intel.com/');
@@ -54,15 +41,7 @@ defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
    .then(function () {
     return element(by.xpath('.//*[@id="sidebar"]/div[1]/ul/li[2]/ul/li[1]/a')).click();
     }) 
-  // .then(()=>{
-  //   return browser.wait(()=>{
-  //       return browser.getTitle()
-  //       .then((title)=>{
-  //         return title === 'Sample | TruVoice';
-  //       })
-  //   },10000)
-  // })
-  
+
 
    })
    Given('I am on the Sample page', function() {
