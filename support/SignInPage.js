@@ -1,12 +1,13 @@
-'use strict';
+// 'use strict';
 
-let inheritance = require('./inheritance'),
-    Page = require('./page');
+let inheritance = require('./inheritance');
+    
+let Page = require('./page');
 
-let SignInPage = function(world){
+let SignInPage = function(){
 
-    var self = this;
-}
+    // var self = this;
+};
 inheritance.inherits(Page, SignInPage);
 SignInPage.prototype.url = 'https://next.primary-intel.com/';
 

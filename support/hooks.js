@@ -1,4 +1,4 @@
-var {defineSupportCode} = require('cucumber');
+// var {defineSupportCode} = require('cucumber');
 
 // defineSupportCode(function({Before,setDefaultTimeout}) {
 

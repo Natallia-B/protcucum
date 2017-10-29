@@ -7,4 +7,4 @@ let inheritance = {
     }
 };
 
-module.exports = inheritance
+module.exports = inheritance;

@@ -7,7 +7,7 @@ exports.config = {
       // format:  'pretty',
       require: [
         'support/support/world.js',
-        'step_definitions/browser_steps.js'
+        'step_definitions/*.js'
       ]
     },
   

@@ -1,8 +1,11 @@
-'use strict';
+// 'use strict';
 
-let Page = function(){};
+let Page = function(){
+};
 
-Page.prototype.root = element(by.css('body'));
+Page.prototype._root = element(by.css('body'));
+Page.prototype.data = {};
+Page.prototype.url = '';
 
 Page.prototype.goToPage = function(){
     return Promise.resolve()
@@ -11,3 +14,6 @@ Page.prototype.goToPage = function(){
         })
 
 }
+
+
+module.exports = Page;

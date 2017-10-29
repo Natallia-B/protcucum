@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 let SignInPage = require('./SignInPage');
     // DashboardPage = require('./DashboardPage'),
@@ -7,23 +7,29 @@ let SignInPage = require('./SignInPage');
 
 let PageFactory = function(world){
     
-    let slf = this;
+    let _this = this;
 
-    self.currentPage = null;
+    _this.currentPage = null;
+    _this.getPage2 = function(){
+        console.log('!!!!!!!!');
+    };
 
-    self.getPage = function(page){
+    _this.getPage = function(page){
         let pages = {
-            'signin': SignInPage,
-            'dashboard': DashboardPage,
-            'sample': SamplePage,
-            'addsample': AddSamplePage
+            'signin': SignInPage
+            // 'dashboard': DashboardPage,
+            // 'sample': SamplePage,
+            // 'addsample': AddSamplePage
           
         };
         if(!pages[page]){
             throw new Error('Wrong page name: '+pages[page]);
         }
-        self.currentPage = new pages[page](world);
-        return self.currentPage();
+        _this.currentPage = new pages[page](world);
+        // _this.currentPage = new SignInPage;
+        // console.log(_this.currentPage)
+        return _this.currentPage;
+        
     };
 };
 
