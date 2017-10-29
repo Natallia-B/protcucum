@@ -1,6 +1,8 @@
 let {defineSupportCode} = require('cucumber');
+
+let PageFactory = require('./../support/page_factory.js');
 let SamplePage = require('./../support/sample_p.js');
-let page;
+
 let loginButton = element(by.xpath('.//*[@id="signin-form_id"]/button'));
 
 defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
@@ -123,7 +125,7 @@ defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
   //Second part: same, but using page object
   
   When('Open edit opportunity', function() {
-    
+      let page;
       // page = new SamplePage ()
       // return page.navigate()
       // .then(function(){

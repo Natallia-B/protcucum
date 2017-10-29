@@ -22,6 +22,7 @@ exports.config = {
       // browsername: 'safari'
     }
   ],
+    allScriptsTimeout: 120000,
 
     onPrepare: function(){
       // browser.ignoreSynchronization = false;

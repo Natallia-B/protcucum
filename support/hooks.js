@@ -1,10 +1,10 @@
 var {defineSupportCode} = require('cucumber');
 
-defineSupportCode(function({Before,setDefaultTimeout}) {
+// defineSupportCode(function({Before,setDefaultTimeout}) {
 
-  setDefaultTimeout(60000);
+//   setDefaultTimeout(60000);
 
-  // After(function() {
+//   // After(function() {
   //   return this.driver.quit();
   // });
-});
+// });
