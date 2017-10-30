@@ -15,8 +15,12 @@
     "chai-smoothie": "^0.3.2",
     "cucumber": "^3.0.6",
     "cucumber-pretty": "0.0.5",
+    "grunt": "^1.0.1",
+    "grunt-protractor-runner": "^5.0.0",
     "protractor": "^5.2.0",
     "protractor-cucumber-framework": "^4.0.9",
+    "grunt-protractor-cucumber-html-report": "latest",
+    "grunt-protractor-webdriver": "latest",
     "webdriver-manager": "^12.0.6"
   },
   "dependencies": {

@@ -1,6 +1,7 @@
 let {defineSupportCode} = require('cucumber');
 
-let PageFactory = require('./../support/page_factory.js');
+let myCurrentPage = require('./../support/page_factory.js');
+// let PageFactory = require('./../support/page_factory.js');
 // let SamplePage = require('./../support/sample_p.js');
 
 // let loginButton = element(by.xpath('.//*[@id="signin-form_id"]/button'));
@@ -9,12 +10,14 @@ defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
   setDefaultTimeout(12000);
 
   When(/^I navigate to '(.+)'$/, function(SomePage) {
-    // console.log(typeOf(Pagefactory));
-    // let pf = new PageFactory('');
-        return PageFactory.getPage(SomePage).goToPage();
-  
-    });
     
+    return myCurrentPage.getInstance().getPage(SomePage).goToPage()
+    .then(function () {
+      return console.log(myCurrentPage.getInstance().getPage(SomePage).title);
+          //   return browser.wait(protractor.ExpectedConditions.titleIs(myCurrentPage.title), 50000);
+          })
+    });
+     
 //     return Promise.resolve()
 //     // .then(function () {
 //     //   return browser.get('https://next.primary-intel.com/');

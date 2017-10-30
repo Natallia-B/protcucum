@@ -3,9 +3,10 @@
 let Page = function(){
 };
 
-Page.prototype._root = element(by.css('body'));
-Page.prototype.data = {};
+// Page.prototype._root = element(by.css('body'));
+// Page.prototype.data = {};
 Page.prototype.url = '';
+Page.prototype.title = '';
 
 Page.prototype.goToPage = function(){
     return Promise.resolve()
