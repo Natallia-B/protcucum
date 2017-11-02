@@ -1,7 +1,6 @@
 {
   "name": "protcucum",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,14 +15,26 @@
     "cucumber": "^3.0.6",
     "cucumber-pretty": "0.0.5",
     "grunt": "^1.0.1",
+    "grunt-protractor-cucumber-html-report": "^0.2.8",
     "grunt-protractor-runner": "^5.0.0",
-    "protractor": "^5.2.0",
+    "grunt-protractor-webdriver": "^0.2.5",
+    "grunt-shell": "^2.1.0",
+    "load-grunt-tasks": "^3.5.2",
+    "moment": "^2.19.1",
     "protractor-cucumber-framework": "^4.0.9",
-    "grunt-protractor-cucumber-html-report": "latest",
-    "grunt-protractor-webdriver": "latest",
     "webdriver-manager": "^12.0.6"
   },
   "dependencies": {
-    "git": "^0.1.5"
-  }
+    "git": "^0.1.5",
+    "protractor": "^5.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Natallia-B/protcucum.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ыNatallia-B/protcucum/issues"
+  },
+  "homepage": "https://github.com/Natallia-B/protcucum#readme",
+  "description": ""
 }
