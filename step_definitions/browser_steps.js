@@ -13,8 +13,8 @@ defineSupportCode(function({setDefaultTimeout, Given, When, Then}) {
     
     return myCurrentPage.getInstance().getPage(SomePage).goToPage()
     .then(function () {
-      return console.log(myCurrentPage.getInstance().getPage(SomePage).title);
-          //   return browser.wait(protractor.ExpectedConditions.titleIs(myCurrentPage.title), 50000);
+      return console.log(myCurrentPage.getInstance().getPage(SomePage).title1);
+            return browser.wait(protractor.ExpectedConditions.titleIs(myCurrentPage.getInstance().getPage(SomePage).title1), 50000);
           })
     });
      

@@ -10,7 +10,7 @@ let SignInPage = function(){
 };
 inheritance.inherits(Page, SignInPage);
 SignInPage.prototype.url = 'https://next.primary-intel.com/';
-SignInPage.prototype.title = 'TruVoiceTest';
+SignInPage.prototype.title1 = 'TruVoiceTest';
 
 
 module.exports = SignInPage;
